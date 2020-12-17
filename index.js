@@ -1,5 +1,6 @@
 // simple node.js application to receive data from clients and keep this data in memory
 
+require('dotenv').config({path: 'endpoints.env'})  // read endpoints.env file
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -16,8 +17,8 @@ app.post('/events', (req, res) => {
     events.push(event);
 
     // forward the event to the display service
-    axios.post('http://localhost:4001/events', event);
-    console.log("event received",event);
+    axios.post(`http://${process.env.DISPLAYDATA_HOSTNAME}:${process.env.DISPLAYDATA_PORT}/events`, event);
+    console.log("event received", event);
     res.send({status: 'ok event rec. and forwarded'});
 });
 
