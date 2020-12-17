@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventbus-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventbus
+  template:
+    metadata:
+      labels:
+        app: eventbus
+    spec:
+      containers:
+        - name: eventbus
+          imagePullPolicy: Always
+          image: replace/me/eventbus
+          env:
+            - name: DISPLAYDATA_HOSTNAME
+              value: 'localhost'
+            - name: DISPLAYDATA_PORT
+              value: '4001'
