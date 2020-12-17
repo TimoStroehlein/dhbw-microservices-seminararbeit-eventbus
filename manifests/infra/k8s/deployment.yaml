@@ -18,6 +18,6 @@ spec:
           image: replace/me/eventbus
           env:
             - name: DISPLAYDATA_HOSTNAME
-              value: 'localhost'
+              value: 'displaydata-service'
             - name: DISPLAYDATA_PORT
               value: '4001'
