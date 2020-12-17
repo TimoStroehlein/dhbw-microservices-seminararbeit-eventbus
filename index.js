@@ -1,4 +1,4 @@
-// simple node.js application to receive data from clients and keep this data in memeory
+// simple node.js application to receive data from clients and keep this data in memory
 
 const express = require('express');
 const bodyParser = require('body-parser');
